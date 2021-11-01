@@ -17,6 +17,8 @@ const io = new IOServer(httpServer);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/", express.static(path.join(__dirname,"public")));
+
 
 // Set hbs engine
 
@@ -25,12 +27,12 @@ app.engine(
   handlebars({
     extname: ".hbs",
     defaultLayout: "index.hbs",
-    layoutsDir: __dirname + "/views/layouts",
+    layoutsDir: __dirname + "/public",
     partialsDir: __dirname + "/views/partials/",
   })
 );
 app.set("view engine", "hbs");
-app.set("views", "./views/layouts");
+app.set("views", "./public");
 
 app.post("/productos", (req, res, next) => {
   console.log("le pega a post productos");
@@ -39,7 +41,7 @@ app.post("/productos", (req, res, next) => {
 
 app.get("/productos", (req, res, next) => {
   console.log("le pega a get productos");
-  res.render("index", notes);
+  res.render('index');
 });
 
 httpServer.listen(PORT, () => {
