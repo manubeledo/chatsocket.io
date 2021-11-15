@@ -6,7 +6,6 @@ const handlebars = require("express-handlebars");
 const cors = require("cors");
 const path = require("path");
 const PORT = 8080;
-const { productos } = require("./productos");
 
 // Initializations
 const app = express();
@@ -21,7 +20,6 @@ app.use("/", express.static(path.join(__dirname,"public")));
 
 
 // Set hbs engine
-
 app.engine(
   "hbs",
   handlebars({
@@ -48,8 +46,8 @@ httpServer.listen(PORT, () => {
   console.log(`Desafio funcionando en la URL http://localhost:${PORT}/productos`);
 });
 
-let notes = [];
-let msgs = [];
+let notes = []; // Here is where the notes are been archived
+let msgs = [];  // Here is where the messages are been archived
 
 io.on("connection", (socket) => {
   console.log("new connection", socket.id);
