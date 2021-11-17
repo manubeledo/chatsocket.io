@@ -13,21 +13,21 @@
     <div   style="max-width:700px; width: 100%; margin: 50px auto 0px;">
       
       <h1 style="text-align: center; color: rgb(65, 65, 247)">Ingrese Producto</h1>
-      <form action="http://localhost:8080/productos" method="POST" name="upload_img_form" id="id-form">
+      <form action="http://localhost:8080/api/productos" method="POST" id="id-form">
             <div>  
                 <label class="form-label">Title</label>
                 <input type="text" name="title" class="form-control" id="inputtitulo" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="input-precio" class="form-label">Price</label>
-                <input type="text" name="price" class="form-control" id="inputprecio" aria-describedby="emailHelp">
+                <input type="text" name="description" class="form-control" id="inputprecio" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
               <label for="input-thumbnail" class="form-label">Thumbnail</label>
               <input type="text" name="thumbnail" class="form-control" id="inputthumbnail">
             </div>
             <button type="submit" class="btn btn-primary" style="max-width: 700px; width: 100%; margin: 50px auto 0px;" id="submit">ENVIAR</button>
-          </form>
+      </form>
           
     </div>
 
@@ -48,13 +48,13 @@
     <div class="contenedor" style="background-color: rgb(184, 181, 181); max-width:700px; width: 100%;  margin: 50px auto 0px;">
       <h1 style="text-align: center; color: rgb(65, 65, 247); margin-top: 50px;">Centro de mensajes</h1>
 
-      <form action="http://localhost:8080/productos" method="POST" name="upload_img_form" id="id-form-chat">
+      <form action="http://localhost:8080/api/mensajes" method="POST" name="upload_img_form" id="id-form-chat">
         <div class="id-chat" style="height: 50px; max-width:700px; width: 100%;  margin: 50px auto 0px;">
-          <input type="text" name="mail" id="id-mail" placeholder="Ingrese su e-mail" style="max-width:500px; width: 100%; margin-left:100px;" required="true"> 
+          <input type="text" name="email" id="id-mail" placeholder="Ingrese su e-mail" style="max-width:500px; width: 100%; margin-left:100px;" required="true"> 
         </div>
 
         <div class="id-chat" style="max-width:700px; width: 100%;  margin: 50px auto 0px">
-          <input type="text" name="mail" id="id-chat-message" style="max-width:400px; width: 100%; margin-left:100px">
+          <input type="text" name="mensaje" id="id-chat-message" style="max-width:400px; width: 100%; margin-left:100px">
           <button type="submit" style="margin-left: 20px; width: 80px;">Enviar</button>
         </div>
       </form>
