@@ -9,12 +9,26 @@ module.exports = {
 }
 
 async function add(newmsg){
-    const [id] = await db('messages').insert(newmsg);
-    return id;
+    try {
+        const [id] = await db('messages').insert(newmsg);
+        return id;
+    }
+    catch(err){
+        console.log("HOLA")
+        if(err.code === 'SQLITE_ERROR')
+            await db.schema.createTable('messages', table => {
+              table.increments(); // Me va aumentando el id 
+              table.text('email', 128).notNullable();
+              table.text('mensaje', 128).notNullable();
+              table.timestamps(true, true);
+            })
+        await db('messages').insert(newmsg);
+    }
 }
 
 async function addproduct(newproduct){
     try {
+        console.log("HOLA")
         await db_two('products').insert(newproduct);
     } 
     catch(err){
